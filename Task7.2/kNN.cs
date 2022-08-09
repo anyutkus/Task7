@@ -1,11 +1,11 @@
 ﻿namespace Task7._2
 {
-	public class kNN
-	{
-        private static readonly List<(string,double,double)> _data = new();
+    public class kNN
+    {
+        private static readonly List<(string, double, double)> _data = new();
 
-		public kNN()
-		{
+        public kNN()
+        {
             using var stream = new StreamReader(@"data.txt");
             while (!stream.EndOfStream)
             {
@@ -23,7 +23,7 @@
             stream.Dispose();
         }
 
-		public static string Algorithm(double coord1, double coord2, int k)
+        public static string Algorithm(double coord1, double coord2, int k)
         {
             var distance = _data.AsParallel()
                 .Select(x => new
@@ -39,7 +39,7 @@
                     Title = x.Key,
                     Amount = x.Count()
                 })
-                .OrderByDescending(x=>x.Amount).First().Title;
+                .OrderByDescending(x => x.Amount).First().Title;
         }
     }
 }
