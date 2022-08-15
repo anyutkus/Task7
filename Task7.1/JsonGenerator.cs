@@ -4,9 +4,9 @@ namespace Task7._1
 {
     public class JsonGenerator
     {
-        public JsonGenerator(string fileName, object @object)
+        public JsonGenerator(string fileName, object data)
         {
-            ArgumentNullException.ThrowIfNull(@object, nameof(@object));
+            ArgumentNullException.ThrowIfNull(data, nameof(data));
 
             var options = new JsonSerializerOptions
             {
@@ -14,7 +14,7 @@ namespace Task7._1
                 WriteIndented = true,
             };
 
-            var json = JsonSerializer.Serialize(@object, options);
+            var json = JsonSerializer.Serialize(data, options);
 
             new JsonCreator(fileName, json);
         }
