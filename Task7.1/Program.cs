@@ -4,8 +4,16 @@ public static class Program
 {
     public static void Main()
     {
-        Employees emp = new();
+        var data = LineReader.LineConvertion("data.csv");
+        Vacation emp = new(data);
+
         Console.WriteLine($"Average : {emp.AvgVacationDuration()}");
-        emp.GetVacationDuration();
+
+        foreach (var vacation in emp.GetVacationDuration())
+        {
+            Console.WriteLine($"{vacation.Name} - {vacation.Duration}");
+        }
+
+        new JsonGenerator("Vacation", emp.GetVacationDuration());
     }
 }
