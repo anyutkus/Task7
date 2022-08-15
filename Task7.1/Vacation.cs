@@ -8,6 +8,11 @@ namespace Task7._1
 
         public Vacation(ConcurrentStack<(string, DateOnly, DateOnly)> values)
         {
+            if (values == null || values.IsEmpty)
+            {
+                throw new ArgumentException("Parameter cannot be null or empty", nameof(values));
+            }
+
             Parallel.ForEach(values, line =>
             {
                 _vacationData.Push(line);

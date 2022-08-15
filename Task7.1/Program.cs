@@ -5,15 +5,15 @@ public static class Program
     public static void Main()
     {
         var data = LineReader.LineConvertion("data.csv");
-        Vacation emp = new(data);
+        Vacation v = new(data);
 
-        Console.WriteLine($"Average : {emp.AvgVacationDuration()}");
+        Console.WriteLine($"Average : {v.AvgVacationDuration()}");
 
-        foreach (var vacation in emp.GetVacationDuration())
+        foreach (var vacation in v.GetVacationDuration())
         {
             Console.WriteLine($"{vacation.Name} - {vacation.Duration}");
         }
 
-        new JsonGenerator("Vacation", emp.GetVacationDuration());
+        JsonGenerator.Generate("Vacation", v.GetVacationDuration());
     }
 }

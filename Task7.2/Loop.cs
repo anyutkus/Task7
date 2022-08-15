@@ -6,6 +6,11 @@
 
         public Loop(Searcher searcher)
         {
+            if (searcher == null)
+            {
+                throw new ArgumentNullException(nameof(searcher), "cannot be null");
+            }
+
             _searcher = searcher;
         }
 

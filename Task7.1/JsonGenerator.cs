@@ -2,9 +2,9 @@
 
 namespace Task7._1
 {
-    public class JsonGenerator
+    public static class JsonGenerator
     {
-        public JsonGenerator(string fileName, object data)
+        public static void Generate(string fileName, object data)
         {
             ArgumentNullException.ThrowIfNull(data, nameof(data));
 
@@ -16,7 +16,7 @@ namespace Task7._1
 
             var json = JsonSerializer.Serialize(data, options);
 
-            new JsonCreator(fileName, json);
+            JsonCreator.Create(fileName, json);
         }
     }
 }

@@ -6,6 +6,11 @@
 
         public Searcher(List<(string, double, double)> data)
         {
+            if (data == null || data.Count == 0)
+            {
+                throw new ArgumentException("Parameter cannot be null or empty", nameof(data));
+            }
+
             foreach (var line in data)
             {
                 _data.Add(line);

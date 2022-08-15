@@ -1,8 +1,8 @@
 ﻿namespace Task7._1
 {
-    public class JsonCreator
+    public static class JsonCreator
     {
-        public JsonCreator(string fileName, string json)
+        public static void Create(string fileName, string json)
         {
             File.WriteAllText($"{fileName}.json", json);
         }

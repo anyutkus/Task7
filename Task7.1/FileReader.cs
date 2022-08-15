@@ -19,7 +19,7 @@
             }
             catch (FileNotFoundException ex)
             {
-                throw new FileNotFoundException($"{fileName} can not be found", ex.Message);
+                throw new FileNotFoundException($"{fileName} cannot be found", ex.Message);
             }
 
             return list;
